@@ -16,7 +16,7 @@ pr:
 variables:
   knownHosts: github.com
   organizationName: godeltech
-  sshKeySecureFileName: GodelGithubPagesDeployKey
+  sshKeySecureFileName: GodelTechGithubPagesDeployKey
   repositoryName: godeltech.github.io
 
 pool:
