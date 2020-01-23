@@ -1,0 +1,135 @@
+# Build for Angular project
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - '*'
+    exclude:
+    - master # master excluded because it stores GitHub Pages files
+
+pr:
+  branches:
+    include:
+    - '*'
+
+variables:
+  knownHosts: github.com
+  organizationName: godeltech
+  sshKeySecureFileName: GodelGithubPagesDeployKey
+  repositoryName: godeltech.github.io
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: 'Build'
+  jobs:
+    - job: Build
+      displayName: 'Build'
+      steps:
+      - task: NodeTool@0
+        displayName: 'Install Node.js'
+        inputs:
+          versionSpec: '10.x'
+
+      - task: Npm@1
+        displayName: 'Install npm'
+        inputs:
+          command: 'install'
+
+      - task: Npm@1
+        displayName: 'npm run build'
+        inputs:
+          command: 'custom'
+          customCommand: 'run build'
+
+      - task: Npm@1
+        displayName: 'npm run test'
+        inputs:
+          command: 'custom'
+          customCommand: 'run test'
+
+      - task: PublishCodeCoverageResults@1
+        displayName: 'Publish code coverage results'
+        condition: succeededOrFailed()
+        inputs:
+          codeCoverageTool: Cobertura
+          summaryFileLocation: 'coverage/cobertura-coverage.xml'
+          failIfCoverageEmpty: true
+
+      - task: PublishTestResults@2
+        displayName: 'Publish test results'
+        condition: succeededOrFailed()
+        inputs:
+          searchFolder: $(System.DefaultWorkingDirectory)/junit
+          testRunTitle: Angular
+          testResultsFormat: JUnit
+          testResultsFiles: "**/TESTS*.xml"
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish Pipeline Artifact: website'
+        inputs:
+          path: '$(System.DefaultWorkingDirectory)/dist'
+          artifact: 'website'
+
+- stage: GitHubPages
+  displayName: 'GitHub Pages'
+  dependsOn: Build
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/source'))
+  jobs:
+    - deployment: Publish
+      displayName: 'Publish GitHub Pages'
+      environment: 'GitHub Pages'
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+
+            - task: InstallSSHKey@0
+              displayName: 'Install SSH key'
+              inputs:
+                knownHostsEntry: '$(knownHosts)'
+                sshPublicKey: '$(sshPublicKey)'
+                sshKeySecureFile: '$(sshKeySecureFileName)'
+
+            - task: CmdLine@2
+              displayName: 'Clone repository'
+              inputs:
+                script: |
+                  git clone --branch master git@github.com:$(organizationName)/$(repositoryName).git repository
+                workingDirectory: '$(Pipeline.Workspace)'
+
+            - task: DeleteFiles@1
+              displayName: 'Delete all files except .git'
+              inputs:
+                SourceFolder: '$(Pipeline.Workspace)/repository'
+                Contents: |
+                  **/*
+                  !(.git)
+
+            - task: CmdLine@2
+              displayName: 'Copy index.html with 404.html name'
+              inputs:
+                script: |
+                  cp index.html 404.html
+                workingDirectory: '$(Pipeline.Workspace)/website'
+
+            - task: CopyFiles@2
+              displayName: 'Copy files'
+              inputs:
+                SourceFolder: '$(Pipeline.Workspace)/website'
+                Contents: '**'
+                TargetFolder: '$(Pipeline.Workspace)/repository'
+
+            - task: CmdLine@2
+              displayName: 'Commit changes'
+              inputs:
+                script: |
+                  git config --local user.name "Azure DevOps Pipelines"
+                  git config --local user.email "azuredevops@microsoft.com"
+                  git add .
+                  git commit -m "Auto-generated commit"
+                  git push
+                workingDirectory: '$(Pipeline.Workspace)/repository'

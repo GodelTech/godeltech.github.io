@@ -1,0 +1,69 @@
+:host {
+    padding: 35px;
+}
+
+.mat-form-field {
+    width: 500px;
+    font-size: 18px;
+
+    .material-icons {
+        vertical-align: -5px;
+        margin: 0 10px;
+    }
+}
+
+.mat-list-base {
+    width: 100%;
+
+    .mat-list-item {
+        height: 95px;
+    }
+}
+
+.mat-list-item {
+    display: flex;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.87);
+    margin-bottom: 5px;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+        transition-duration: 0.3s;
+        background-color: #3f51b5;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.87);
+
+        .description-container {
+            border-color: rgba(255, 255, 255, 0.87);
+        }
+    }
+}
+
+.name-container,
+.description-container {
+    display: flex;
+    flex-direction: column;
+    flex: 0.6;
+}
+
+.description-container {
+    flex: 0.4;
+    border-left: 1px solid rgba(0, 0, 0, 0.87);
+    padding: 0 20px;
+    height: 100%;
+
+    span {
+        margin-bottom: 5px;
+    }
+}
+
+.label {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.description {
+    overflow: auto;
+}

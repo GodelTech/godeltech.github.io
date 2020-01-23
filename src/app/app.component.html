@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span class="label">Open Source</span>
+        <div class="spacer"></div>
+        <a mat-button [href]="githubLink">
+            <span class="mat-button-wrapper">
+                <img src="../assets/github.svg">
+                GitHub
+            </span>
+        </a>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="main-container">
+    <div>
+        <img class="logo" src="../assets/godel-logo.svg">
+    </div>
+
+    <router-outlet></router-outlet>
+</div>
