@@ -14,10 +14,14 @@ pr:
     - '*'
 
 variables:
+  artifactDirectory: 'website'
+  builtAppLocation: 'dist'
+  coverageLocation: 'coverage'
   knownHosts: github.com
   organizationName: godeltech
-  sshKeySecureFileName: GodelTechGithubPagesDeployKey
   repositoryName: godeltech.github.io
+  sshKeySecureFileName: GodelTechGithubPagesDeployKey
+  testResultLocation: 'junit'
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -56,23 +60,23 @@ stages:
         condition: succeededOrFailed()
         inputs:
           codeCoverageTool: Cobertura
-          summaryFileLocation: 'coverage/cobertura-coverage.xml'
+          summaryFileLocation: '$(coverageLocation)/cobertura-coverage.xml'
           failIfCoverageEmpty: true
 
       - task: PublishTestResults@2
         displayName: 'Publish test results'
         condition: succeededOrFailed()
         inputs:
-          searchFolder: $(System.DefaultWorkingDirectory)/junit
+          searchFolder: $(System.DefaultWorkingDirectory)/$(testResultLocation)
           testRunTitle: Angular
           testResultsFormat: JUnit
           testResultsFiles: "**/TESTS*.xml"
 
       - task: PublishPipelineArtifact@1
-        displayName: 'Publish Pipeline Artifact: website'
+        displayName: 'Publish Pipeline Artifact in $(artifactDirectory) directory'
         inputs:
-          path: '$(System.DefaultWorkingDirectory)/dist'
-          artifact: 'website'
+          path: '$(System.DefaultWorkingDirectory)/$(builtAppLocation)'
+          artifact: '$(artifactDirectory)'
 
 - stage: GitHubPages
   displayName: 'GitHub Pages'
@@ -112,14 +116,14 @@ stages:
             - task: CmdLine@2
               displayName: 'Copy index.html with 404.html name'
               inputs:
-                workingDirectory: '$(Pipeline.Workspace)/website'
+                workingDirectory: '$(Pipeline.Workspace)/$(artifactDirectory)'
                 script: |
                   cp index.html 404.html
 
             - task: CopyFiles@2
               displayName: 'Copy files'
               inputs:
-                SourceFolder: '$(Pipeline.Workspace)/website'
+                SourceFolder: '$(Pipeline.Workspace)/$(artifactDirectory)'
                 Contents: '**'
                 TargetFolder: '$(Pipeline.Workspace)/repository'
 
