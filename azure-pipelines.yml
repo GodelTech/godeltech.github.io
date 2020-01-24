@@ -14,14 +14,14 @@ pr:
     - '*'
 
 variables:
-  artifactDirectory: 'website'
-  builtAppLocation: 'dist'
-  coverageLocation: 'coverage'
+  artifactDirectory: website
+  builtAppLocation: dist
+  coverageLocation: coverage
   knownHosts: github.com
   organizationName: godeltech
   repositoryName: godeltech.github.io
   sshKeySecureFileName: GodelTechGithubPagesDeployKey
-  testResultLocation: 'junit'
+  testResultLocation: junit
 
 pool:
   vmImage: 'ubuntu-latest'
