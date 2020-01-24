@@ -1,4 +1,4 @@
-# Build for Angular project
+# Build for GitHub Pages project
 
 trigger:
   batch: true
