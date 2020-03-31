@@ -15,7 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from './services/api.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
     declarations: [
