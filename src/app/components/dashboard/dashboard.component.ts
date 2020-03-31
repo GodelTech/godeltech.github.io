@@ -39,7 +39,7 @@ export class DashboardComponent extends SubscriptionDestroyer implements OnInit 
                     || x.language && x.language.toLowerCase().includes(term.toLowerCase())
                 );
             }
-        })
+        });
     }
 
     private loadRepositoryList(): void {
