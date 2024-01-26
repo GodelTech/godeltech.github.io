@@ -4,7 +4,7 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "build": "npm run lint && npm run stylelint && ng build --prod",
+        "build": "npm run lint && npm run stylelint && ng build --configuration production",
         "test": "ng test --code-coverage",
         "lint": "ng lint",
         "stylelint": "stylelint \"**/*.scss\"",
