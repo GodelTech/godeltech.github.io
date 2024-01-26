@@ -1,8 +1,8 @@
 export class RepositoryModel {
-    public id: number;
-    public name: string;
-    public language: string;
-    public description: string;
+    public id: number | undefined;
+    public name: string | undefined;
+    public language: string | undefined;
+    public description: string | undefined;
 
     public constructor(fields?: Partial<RepositoryModel>) {
         if (fields) {

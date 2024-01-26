@@ -1,9 +1,9 @@
 export class BuildInfoModel {
-    public name: string;
-    public description: string;
-    public gitHubOwner: string;
-    public gitHubRepository: string;
-    public info: string;
+    public name: string | undefined;
+    public description: string | undefined;
+    public gitHubOwner: string | undefined;
+    public gitHubRepository: string | undefined;
+    public info: string | undefined;
 
     public constructor(fields?: Partial<BuildInfoModel>) {
         if (fields) {

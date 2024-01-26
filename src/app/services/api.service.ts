@@ -7,11 +7,11 @@ import { RepositoryModel } from '../models/repository.model';
 
 @Injectable()
 export class ApiService extends BaseApiService {
-    constructor(protected http: HttpClient) {
+    constructor(protected override http: HttpClient) {
         super(http);
 
     }
-    getRepositoryList(): Observable<any> {
-        return this.httpGet('orgs/godeltech/repos', x => new RepositoryModel(x));
+    getRepositoryList(): Observable<RepositoryModel[]> {
+        return this.httpGet({ url: 'orgs/godeltech/repos', ctor: x => new RepositoryModel(x) });
     }
 }
