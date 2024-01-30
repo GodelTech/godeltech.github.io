@@ -7,7 +7,10 @@
     <mat-list-item *ngFor="let repository of filteredRepositoryList">
         <div class="item-wrapper">
             <div class="name-container">
-                <h2>{{ repository.name }}</h2>
+                <div class="name">
+                    <h2>{{ repository.name }}</h2>
+                    <span>{{getVisibilityString(repository.visibility, repository.archived)}}</span>
+                </div>
                 <div class="common-info">
                     <span *ngIf="repository.language" class="info-span">
                         <span class="language" [style.background-color]="getColor(repository.language)"></span>

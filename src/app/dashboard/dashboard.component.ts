@@ -57,4 +57,8 @@ export class DashboardComponent implements OnInit {
     public getColor(language: string): string | undefined {
         return this.colorsForLanguages.get(language)?.color;
     }
+
+    public getVisibilityString(visibility: string | undefined, archived: boolean) {
+        return `${visibility}${archived ? ' archive' : ''}`;
+    }
 }

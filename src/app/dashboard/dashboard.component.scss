@@ -23,7 +23,7 @@
 .mat-mdc-list-item {
     display: flex;
     background-color: #f5f5f5;
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 4px;
     margin-bottom: 5px;
     cursor: pointer;
@@ -46,7 +46,7 @@
 .description-container {
     flex: 0.4;
     border-left: 1px solid rgba(0, 0, 0, 0.87);
-    padding: 0 20px;
+    padding: 10px 20px 0;
     height: inherit;
 
     span {
@@ -64,20 +64,16 @@
     }
 }
 
-.label {
-    margin-top: 5px;
-    font-size: 12px;
-}
-
 .description {
     overflow: auto;
+    font-weight: 300
 }
 
 .mat-icon {
     font-size: 150%;
 }
 
-.item-wrapper{
+.item-wrapper {
     display: flex;
 }
 
@@ -85,8 +81,8 @@
     margin: 8px 8px 8px 0;
 }
 
-.info-span{
-        margin-right: 16px;
+.info-span {
+    margin-right: 16px;
 }
 
 .language {
@@ -99,4 +95,17 @@
 
 .github-icon {
     width: 15px;
+}
+
+.name {
+    display: flex;
+
+    span {
+        border: 1px solid rgba(0, 0, 0, .2);
+        border-radius: 15px;
+        margin: 5px;
+        padding: 0 5px;
+        height: fit-content;
+        text-transform: capitalize;
+    }
 }

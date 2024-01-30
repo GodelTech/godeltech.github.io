@@ -8,6 +8,8 @@ export class RepositoryModel {
     public stargazers_count: number = 0;
     public open_issues_count: number = 0; /* TODO: returns sum of issues and pulls ??? */
     public license: License | undefined;
+    public archived: boolean = false;
+    public visibility: string | undefined;
 
     public constructor(fields?: Partial<RepositoryModel>) {
         if (fields) {
