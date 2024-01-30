@@ -8,11 +8,37 @@
         <div class="item-wrapper">
             <div class="name-container">
                 <h2>{{ repository.name }}</h2>
-                <span *ngIf="repository.language">{{ repository.language }} language</span>
+                <div class="common-info">
+                    <span *ngIf="repository.language" class="info-span">
+                        <span class="language" [style.background-color]="getColor(repository.language)"></span>
+                        {{ repository.language }}
+                    </span>
+                    <span *ngIf="repository.license" class="info-span">
+                        <img class="github-icon" src="../../assets/law.png" alt="forked.png">
+                        {{ repository.license.spdx_id }}
+                    </span>
+                    <span class="info-span">
+                        <img class="github-icon" src="../../assets/forked.png" alt="forked.png">
+                        {{ repository.forks_count }}
+                    </span>
+                    <span class="info-span">
+                        <img class="github-icon" src="../../assets/star.png" alt="star.png">
+                        {{ repository.stargazers_count }}
+                    </span>
+                    <span class="info-span">
+                        <img class="github-icon" src="../../assets/opened.png" alt="opened.png">
+                        {{ repository.open_issues_count }}
+                    </span>
+                </div>
             </div>
-            <div *ngIf="repository.description" class="description-container">
-                <span class="label">Description:</span>
-                <span class="description"> {{ repository.description }} </span>
+            <div class="description-container">
+                <div *ngIf="repository.description">
+                    <span class="label">Description:</span>
+                    <span class="description"> {{ repository.description }} </span>
+                </div>
+                <div *ngIf="repository.topics.length" class="topics-row">
+                    <button mat-raised-button *ngFor="let topic of repository.topics" color="primary">{{topic}}</button>
+                </div>
             </div>
         </div>
     </mat-list-item>

@@ -9,11 +9,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 import { ApiService } from './services/api.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ColorsService } from './services/colors.service';
 
 @NgModule({
     declarations: [
@@ -26,6 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         BrowserModule,
         HttpClientModule,
         MatButtonModule,
+        MatCardModule,
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
@@ -33,7 +36,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         MatToolbarModule,
         ReactiveFormsModule
     ],
-    providers: [ApiService],
+    providers: [ApiService, ColorsService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
