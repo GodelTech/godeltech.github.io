@@ -17,42 +17,36 @@
 
     .mat-mdc-list-item {
         height: fit-content;
-    }
-}
+        border: 1px solid rgba(0, 0, 0, .2);
+        border-radius: 10px;
+        background-color: #fff;
+        display: flex;
+        margin-bottom: 5px;
+        cursor: pointer;
+        user-select: none;
 
-.mat-mdc-list-item {
-    display: flex;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(0, 0, 0, 0.87);
-    margin-bottom: 5px;
-    cursor: pointer;
-    user-select: none;
-
-    &:hover {
-        transition-duration: 0.3s;
-        background-color: #3f51b5;
-        color: #fff;
-        border-color: rgba(255, 255, 255, 0.87);
-
-        .description-container {
-            border-color: rgba(255, 255, 255, 0.87);
+        &:hover {
+            transition-duration: 0.3s;
+            background-color: #fafafa;
+            color: #fff;
         }
     }
 }
+
 
 .name-container,
 .description-container {
     display: flex;
     flex-direction: column;
     flex: 0.6;
+    margin: 10px 0;
 }
 
 .description-container {
     flex: 0.4;
-    border-left: 1px solid rgba(0, 0, 0, 0.87);
     padding: 0 20px;
     height: inherit;
+    margin: 10px 0;
 
     span {
         margin-bottom: 5px;
@@ -61,7 +55,15 @@
 
 .name-container {
     max-width: 570px;
-    padding-right: 20px
+    padding-right: 20px;
+
+    .repo-name {
+        font-weight: 500;
+    }
+
+    .repo-language {
+        font-weight: 200;
+    }
 }
 
 .label {
@@ -77,6 +79,15 @@
     font-size: 150%;
 }
 
-.item-wrapper{
+.item-wrapper {
     display: flex;
+    color: #002856;
+}
+
+.language {
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
 }

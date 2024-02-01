@@ -3,6 +3,9 @@ import { FormControl } from '@angular/forms';
 
 import { ApiService } from '../services/api.service';
 import { RepositoryModel } from '../models/repository.model';
+import { InfoService } from '../services/info.service';
+import { URLS } from '../constants/urls';
+import { ColorModel } from '../models/color.model';
 
 @Component({
     selector: 'app-dashboard',
@@ -11,12 +14,17 @@ import { RepositoryModel } from '../models/repository.model';
 })
 export class DashboardComponent implements OnInit {
     repositoryList: RepositoryModel[] = [];
+    colorsForLanguages: Map<string, ColorModel> = new Map<string, ColorModel>();
     filteredRepositoryList: RepositoryModel[] = [];
     searchControl = new FormControl();
 
-    constructor(private apiService: ApiService) { }
+    constructor(
+        private apiService: ApiService,
+        private infoService: InfoService
+    ) { }
 
     ngOnInit(): void {
+        this.loadColorsForLanguages();
         this.loadRepositoryList();
         this.searchControl.valueChanges.subscribe((term: string) => this.onSearchTermChange(term));
     }
@@ -41,5 +49,19 @@ export class DashboardComponent implements OnInit {
             this.repositoryList = x;
             this.filteredRepositoryList = this.repositoryList;
         });
+    }
+
+    private loadColorsForLanguages(): void {
+        this.infoService.getInfoMap<ColorModel>(URLS.colors).subscribe((x: Map<string, ColorModel>) => {
+            this.colorsForLanguages = x;
+        });
+    }
+
+    public getImageUrl(type: string, repoName: string) {
+        return `https://img.shields.io/github/${type}/GodelTech/${repoName}.svg?style=flat-square`;
+    }
+
+    public getColor(language: string): string {
+        return this.colorsForLanguages.get(language)?.color || '#fff';
     }
 }

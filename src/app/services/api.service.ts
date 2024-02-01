@@ -12,6 +12,6 @@ export class ApiService extends BaseApiService {
 
     }
     getRepositoryList(): Observable<RepositoryModel[]> {
-        return this.httpGet({ url: 'orgs/godeltech/repos', ctor: x => new RepositoryModel(x) });
+        return this.httpGet({ url: 'orgs/godeltech/repos?per_page=100', ctor: x => new RepositoryModel(x) });
     }
 }
