@@ -2,6 +2,7 @@
 
 # Compiled output
 /dist
+/junit
 /tmp
 /out-tsc
 /bazel-out
