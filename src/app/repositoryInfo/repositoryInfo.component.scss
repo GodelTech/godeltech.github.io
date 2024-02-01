@@ -1,0 +1,68 @@
+.repository-content {
+    padding: 35px;
+    color: #002856;
+}
+
+.repository-header {
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 45px;
+        height: 45px;
+        padding-right: 20px;
+    }
+
+    a, a:visited {
+        text-decoration: none;
+        color: #002856;
+    }
+}
+
+.mat-mdc-card {
+    margin-bottom: 25px;
+}
+
+.description {
+    font-weight: 300;
+}
+
+.label {
+    font-weight: 500;
+}
+
+.topics-row {
+    margin-top: 15px;
+
+    .topic {
+        margin: 10px;
+        border: 1px solid #002856;
+        border-radius: 15px;
+        padding: 5px;
+        text-decoration: none;
+        color: #002856;
+    }
+}
+
+.info-span {
+    .github-icon {
+        width: 15px;
+    }
+}
+
+.releases-title {
+    margin-bottom: 15px;
+}
+
+.languages-bar {
+    border: 1px solid #002856;
+    display: flex;
+    height: 10px;
+    width: 550px;
+    border-radius: 5px;
+
+    .language {
+        height: inherit;
+        display: block;
+    }
+}

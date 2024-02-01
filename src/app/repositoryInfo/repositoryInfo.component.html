@@ -1,0 +1,48 @@
+<div class="repository-content">
+    <div class="repository-header">
+        <img class="logo" src="../../assets/godel.png" alt="godel.png">
+        <a [href]="repositoryModel.svn_url" target="_blank" rel="noopener noreferrer">
+            <h1 mat-dialog-title>{{repositoryModel.name}}</h1>
+        </a>
+    </div>
+    <div mat-dialog-content>
+        <mat-card>
+            <mat-card-content>
+                <div *ngIf="repositoryModel.description">
+                    <span class="label">About:</span>
+                    <span class="description"> {{ repositoryModel.description }} </span>
+                </div>
+                <div *ngIf="repositoryModel.topics.length" class="topics-row">
+                    <a *ngFor="let topic of repositoryModel.topics" [href]="getTopicUrl(topic)" class="topic"
+                        target="_blank" rel="noopener noreferrer">{{topic}}</a>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <mat-card-content>
+                <div *ngIf="repositoryModel.description" class="releases-title">
+                    <span class="label">Releases</span>
+                </div>
+                <span class="info-span" *ngIf="repositoryTags.length">
+                    <img class="github-icon" src="../../assets/tag.png" alt="tag.png">
+                    {{repositoryTags.length}} tags
+                </span>
+                <span class="info-span" *ngIf="!repositoryTags.length">
+                    No releases published
+                </span>
+            </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <mat-card-content>
+                <div *ngIf="repositoryModel.description" class="releases-title">
+                    <span class="label">Languages</span>
+                </div>
+                <span class="languages-bar">
+                    <span *ngFor="let language of getLanguagesArray()" class="language"
+                        [style.width]="getLanguagePercent(language)"
+                        [style.background-color]="getLanguageColor(language)"></span>
+                </span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

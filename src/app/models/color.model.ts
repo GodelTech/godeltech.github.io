@@ -1,6 +1,6 @@
 export class ColorModel {
-    public color: string | undefined;
-    public url: string | undefined;
+    public color!: string;
+    public url!: string;
 
     public constructor(fields?: Partial<ColorModel>) {
         if (fields) {

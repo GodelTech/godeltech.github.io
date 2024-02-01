@@ -5,6 +5,8 @@ import { ApiService } from '../services/api.service';
 import { ColorsService } from '../services/colors.service';
 import { RepositoryModel } from '../models/repository.model';
 import { ColorModel } from '../models/color.model';
+import { MatDialog } from '@angular/material/dialog';
+import { RepositoryInfoDialog } from '../repositoryInfo/repositoryInfo.component';
 
 @Component({
     selector: 'app-dashboard',
@@ -14,11 +16,13 @@ import { ColorModel } from '../models/color.model';
 export class DashboardComponent implements OnInit {
     repositoryList: RepositoryModel[] = [];
     colorsForLanguages: Map<string, ColorModel> = new Map<string, ColorModel>();
-    colorsForLanguages2: object | undefined;
     filteredRepositoryList: RepositoryModel[] = [];
     searchControl = new FormControl();
 
-    constructor(private apiService: ApiService, private colorsService: ColorsService) { }
+    constructor(
+        private apiService: ApiService,
+        private colorsService: ColorsService,
+        public dialog: MatDialog) { }
 
     ngOnInit(): void {
         this.loadColorsForLanguages();
@@ -27,7 +31,14 @@ export class DashboardComponent implements OnInit {
     }
 
     onDetailsOpen(id: number): void {
-        console.log(id, 'coming soon!');
+        this.dialog.open(RepositoryInfoDialog, {
+            data: {
+                repository: this.repositoryList.filter(item => item.id === id)[0],
+                colorsForLanguages: this.colorsForLanguages
+            },
+            width: '1000px',
+            height: 'fit-content'
+        });
     }
 
     onSearchTermChange(term: string): void {
