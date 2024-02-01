@@ -8,7 +8,10 @@
         <div class="item-wrapper">
             <div class="name-container">
                 <span class="repo-name">{{ repository.name }}</span>
-                <span *ngIf="repository.language" class="repo-language">{{ repository.language }} language</span>
+                <span *ngIf="repository.language" class="repo-language">
+                    <span class="language" [style.background-color]="getColor(repository.language)"></span>
+                    {{ repository.language }}
+                </span>
             </div>
             <div *ngIf="repository.description" class="description-container">
                 <span class="label">Description:</span>

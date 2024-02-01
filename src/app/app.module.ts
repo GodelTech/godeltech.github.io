@@ -14,6 +14,7 @@ import { ApiService } from './services/api.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { InfoService } from './services/info.service';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         MatToolbarModule,
         ReactiveFormsModule
     ],
-    providers: [ApiService],
+    providers: [ApiService, InfoService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
