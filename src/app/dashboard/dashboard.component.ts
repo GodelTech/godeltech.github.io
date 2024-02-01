@@ -57,6 +57,10 @@ export class DashboardComponent implements OnInit {
         });
     }
 
+    public getImageUrl(type: string, repoName: string) {
+        return `https://img.shields.io/github/${type}/GodelTech/${repoName}.svg?style=flat-square`;
+    }
+
     public getColor(language: string): string {
         return this.colorsForLanguages.get(language)?.color || '#fff';
     }

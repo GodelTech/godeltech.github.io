@@ -39,12 +39,14 @@
     display: flex;
     flex-direction: column;
     flex: 0.6;
+    margin: 10px 0;
 }
 
 .description-container {
     flex: 0.4;
     padding: 0 20px;
     height: inherit;
+    margin: 10px 0;
 
     span {
         margin-bottom: 5px;
@@ -54,7 +56,6 @@
 .name-container {
     max-width: 570px;
     padding-right: 20px;
-    margin: 10px 0;
 
     .repo-name {
         font-weight: 500;

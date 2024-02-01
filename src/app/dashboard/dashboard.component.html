@@ -13,9 +13,19 @@
                     {{ repository.language }}
                 </span>
             </div>
-            <div *ngIf="repository.description" class="description-container">
-                <span class="label">Description:</span>
-                <span class="description"> {{ repository.description }} </span>
+            <div class="description-container">
+                <a target="_blank" [href]="repository.html_url + '/issues'">
+                    <img [src]="getImageUrl('issues-raw', repository.name)">
+                </a>
+                <a target="_blank" [href]="repository.html_url + '/pulls'">
+                    <img [src]="getImageUrl('issues-pr-raw', repository.name)">
+                </a>
+                <a target="_blank" [href]="repository.html_url">
+                    <img [src]="getImageUrl('last-commit', repository.name)">
+                </a>
+                <a target="_blank" [href]="repository.html_url">
+                    <img [src]="getImageUrl('license', repository.name)">
+                </a>
             </div>
         </div>
     </mat-list-item>
