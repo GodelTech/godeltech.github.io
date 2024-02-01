@@ -15,7 +15,7 @@ pr:
 
 variables:
   artifactDirectory: website
-  builtAppLocation: dist
+  builtAppLocation: 'dist/browser'
   coverageLocation: coverage
   knownHosts: github.com
   organizationName: godeltech
