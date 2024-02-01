@@ -7,8 +7,8 @@
     <mat-list-item *ngFor="let repository of filteredRepositoryList">
         <div class="item-wrapper">
             <div class="name-container">
-                <h2>{{ repository.name }}</h2>
-                <span *ngIf="repository.language">{{ repository.language }} language</span>
+                <span class="repo-name">{{ repository.name }}</span>
+                <span *ngIf="repository.language" class="repo-language">{{ repository.language }} language</span>
             </div>
             <div *ngIf="repository.description" class="description-container">
                 <span class="label">Description:</span>
