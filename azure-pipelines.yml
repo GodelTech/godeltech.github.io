@@ -36,7 +36,7 @@ stages:
       - task: NodeTool@0
         displayName: 'Install Node.js'
         inputs:
-          versionSpec: '10.x'
+          versionSpec: '20.x'
 
       - task: Npm@1
         displayName: 'Install npm'

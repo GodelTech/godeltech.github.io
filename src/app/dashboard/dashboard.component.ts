@@ -10,8 +10,8 @@ import { RepositoryModel } from '../models/repository.model';
     styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-    repositoryList: RepositoryModel[];
-    filteredRepositoryList: RepositoryModel[];
+    repositoryList: RepositoryModel[] = [];
+    filteredRepositoryList: RepositoryModel[] = [];
     searchControl = new FormControl();
 
     constructor(private apiService: ApiService) { }

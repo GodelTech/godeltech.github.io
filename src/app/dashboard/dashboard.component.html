@@ -5,13 +5,15 @@
 
 <mat-list>
     <mat-list-item *ngFor="let repository of filteredRepositoryList">
-        <div class="name-container">
-            <h2>{{ repository.name }}</h2>
-            <span *ngIf="repository.language">{{ repository.language }} language</span>
-        </div>
-        <div *ngIf="repository.description" class="description-container">
-            <span class="label">Description:</span>
-            <span class="description"> {{ repository.description }} </span>
+        <div class="item-wrapper">
+            <div class="name-container">
+                <h2>{{ repository.name }}</h2>
+                <span *ngIf="repository.language">{{ repository.language }} language</span>
+            </div>
+            <div *ngIf="repository.description" class="description-container">
+                <span class="label">Description:</span>
+                <span class="description"> {{ repository.description }} </span>
+            </div>
         </div>
     </mat-list-item>
 </mat-list>
