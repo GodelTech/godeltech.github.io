@@ -15,16 +15,16 @@
             </div>
             <div class="description-container">
                 <a target="_blank" [href]="repository.html_url + '/issues'">
-                    <img [src]="getImageUrl('issues-raw', repository.name)">
+                    <img [src]="getImageUrl('issues-raw', repository.name)" alt="issues">
                 </a>
                 <a target="_blank" [href]="repository.html_url + '/pulls'">
-                    <img [src]="getImageUrl('issues-pr-raw', repository.name)">
+                    <img [src]="getImageUrl('issues-pr-raw', repository.name)" alt="pulls">
                 </a>
                 <a target="_blank" [href]="repository.html_url">
-                    <img [src]="getImageUrl('last-commit', repository.name)">
+                    <img [src]="getImageUrl('last-commit', repository.name)" alt="last-commit">
                 </a>
                 <a target="_blank" [href]="repository.html_url">
-                    <img [src]="getImageUrl('license', repository.name)">
+                    <img [src]="getImageUrl('license', repository.name)" alt="license">
                 </a>
             </div>
         </div>
