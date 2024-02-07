@@ -1,3 +1,4 @@
 export const APP_ROUTES = {
-    dashboard: 'dashboard'
+    dashboard: 'dashboard',
+    repositoryInfo: 'repositoryInfo/:organization/:repo'
 };

@@ -79,6 +79,10 @@
     font-size: 150%;
 }
 
+.mat-icon.mat-primary {
+    --mat-icon-color: #002856;
+}
+
 .item-wrapper {
     display: flex;
     color: #002856;

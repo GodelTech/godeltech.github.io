@@ -16,4 +16,8 @@ export class InfoService {
         return this.http.get<object>(url)
         .pipe(map((result: object) => new Map<string, T>(Object.entries(result))));
     }
+
+    getInfo<T>(url: string): Observable<T> {
+        return this.http.get<T>(url);
+    }
 }
