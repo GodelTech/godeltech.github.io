@@ -5,7 +5,7 @@
 
 <mat-list>
     <mat-list-item *ngFor="let repository of filteredRepositoryList">
-        <div class="item-wrapper">
+        <a class="item-wrapper" [routerLink]="['/repositoryInfo/' + repository.full_name]">
             <div class="name-container">
                 <span class="repo-name">{{ repository.name }}</span>
                 <span *ngIf="repository.language" class="repo-language">
@@ -27,6 +27,6 @@
                     <img [src]="getImageUrl('license', repository.name)" alt="license">
                 </a>
             </div>
-        </div>
+        </a>
     </mat-list-item>
 </mat-list>

@@ -34,21 +34,37 @@
                         ],
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                            "src/styles.scss"
+                            "src/styles.scss",
+                            "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+                            "node_modules/prismjs/themes/prism-okaidia.css",
+                            "node_modules/prismjs/plugins/command-line/prism-command-line.css",
+                            "node_modules/katex/dist/katex.min.css"
                         ],
-                        "scripts": []
+                        "scripts": [
+                            "node_modules/marked/marked.min.js",
+                            "node_modules/prismjs/prism.js",
+                            "node_modules/prismjs/components/prism-typescript.min.js",
+                            "node_modules/prismjs/components/prism-javascript.min.js",
+                            "node_modules/prismjs/components/prism-css.min.js",
+                            "node_modules/mermaid/dist/mermaid.min.js",
+                            "node_modules/prismjs/plugins/command-line/prism-command-line.js",
+                            "node_modules/katex/dist/katex.min.js",
+                            "node_modules/katex/dist/contrib/auto-render.min.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
-                            "fileReplacements": [{
+                            "fileReplacements": [
+                                {
                                     "replace": "src/environments/environment.ts",
                                     "with": "src/environments/environment.prod.ts"
-                                }],
+                                }
+                            ],
                             "optimization": {
                                 "scripts": true,
                                 "styles": {
-                                  "minify": true,
-                                  "inlineCritical": true
+                                    "minify": true,
+                                    "inlineCritical": true
                                 },
                                 "fonts": false
                             },
@@ -57,7 +73,8 @@
                             "namedChunks": false,
                             "aot": true,
                             "extractLicenses": true,
-                            "budgets": [{
+                            "budgets": [
+                                {
                                     "type": "initial",
                                     "maximumWarning": "2mb",
                                     "maximumError": "5mb"

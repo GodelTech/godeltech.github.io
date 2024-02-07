@@ -12,6 +12,10 @@ const routes: Routes = [
                 path: APP_ROUTES.dashboard,
                 component: DashboardComponent
             },
+            {
+                path: APP_ROUTES.repositoryInfo,
+                loadChildren: () => import('./repository/repository.module').then(m => m.RepositoryModule)
+            },
             { path: '', redirectTo: APP_ROUTES.dashboard, pathMatch: 'full' }
         ]
     },

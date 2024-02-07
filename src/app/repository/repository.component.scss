@@ -1,0 +1,32 @@
+:host {
+    margin: 50px;
+}
+
+.back {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    background-color: inherit;
+    width: 80px;
+    color: #002856;
+    text-decoration: none;
+}
+
+.markdown-wrapper {
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 10px;
+
+    .markdown-header {
+        border-bottom: 1px solid rgba(0, 0, 0, .2);
+        display: flex;
+        align-items: center;
+        color: #002856;
+        height: 60px;
+        padding-left: 30px;
+    }
+
+    .markdown-body {
+        padding: 30px;
+    }
+}

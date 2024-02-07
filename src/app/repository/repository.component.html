@@ -1,0 +1,16 @@
+<div>
+    <a class="back" [routerLink]="['/dashboard']">
+        <mat-icon>reply</mat-icon>
+        <h2>Back</h2>
+    </a>
+
+    <div class="markdown-wrapper">
+        <div class="markdown-header">
+            <mat-icon>description</mat-icon>
+            <span>README</span>
+        </div>
+        <div class="markdown-body">
+            <markdown mermaid katex [src]="markdownUrl"></markdown>
+        </div>
+    </div>
+</div>
