@@ -47,3 +47,17 @@
 .mat-toolbar-row {
     background-color: #002856
 }
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #002856;
+    height: 50px;
+
+    .footer-logo {
+        height: 25px;
+        width: 25px;
+        margin-right: 10px;
+    }
+}

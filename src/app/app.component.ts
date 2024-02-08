@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     githubLink = 'https://github.com/godeltech';
+
+    getCurrentYear(): number {
+        return new Date().getFullYear();
+    }
 }
