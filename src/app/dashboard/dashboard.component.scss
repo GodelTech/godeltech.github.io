@@ -1,14 +1,31 @@
+@use '../style_variables.scss' as styles;
+
 :host {
-    padding: 35px;
+    padding: 10px;
 }
 
 .mat-mdc-form-field {
-    width: 500px;
     font-size: 18px;
 
     .material-icons {
         vertical-align: -5px;
         margin: 0 10px;
+    }
+}
+
+@media only screen and (min-device-width: styles.$mobile) {
+    :host {
+        padding: 20px;
+    }
+}
+
+@media only screen and (min-device-width: styles.$laptop) {
+    :host {
+        padding: 35px;
+    }
+
+    .mat-mdc-form-field {
+        width: 500px;
     }
 }
 
@@ -44,7 +61,6 @@
 
 .description-container {
     flex: 0.4;
-    padding: 0 20px;
     height: inherit;
     margin: 10px 0;
 
@@ -54,11 +70,14 @@
 }
 
 .name-container {
+    width: fill-available;
     max-width: 570px;
     padding-right: 20px;
 
     .repo-name {
         font-weight: 500;
+        word-wrap: break-word;
+        white-space: initial;
     }
 
     .repo-language {
@@ -80,12 +99,14 @@
 }
 
 .mat-icon.mat-primary {
-    --mat-icon-color: #002856;
+    color: styles.$base-godel-color;
 }
 
 .item-wrapper {
     display: flex;
-    color: #002856;
+    color: styles.$base-godel-color;
+    text-decoration: none;
+    flex-wrap: wrap;
 }
 
 .language {

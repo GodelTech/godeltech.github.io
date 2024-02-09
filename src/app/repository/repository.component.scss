@@ -1,5 +1,17 @@
+@use '../style_variables.scss' as styles;
+
 :host {
-    margin: 50px;
+    margin: 10px;
+}
+
+@media only screen and (min-device-width: styles.$laptop) {
+    :host {
+        margin: 50px;
+    }
+
+    .markdown-body {
+        padding: 30px;
+    }
 }
 
 .back {
@@ -9,7 +21,7 @@
     border: none;
     background-color: inherit;
     width: 80px;
-    color: #002856;
+    color: styles.$base-godel-color;
     text-decoration: none;
 }
 
@@ -21,12 +33,12 @@
         border-bottom: 1px solid rgba(0, 0, 0, .2);
         display: flex;
         align-items: center;
-        color: #002856;
+        color: styles.$base-godel-color;
         height: 60px;
         padding-left: 30px;
     }
 
     .markdown-body {
-        padding: 30px;
+        padding: 10px;
     }
 }

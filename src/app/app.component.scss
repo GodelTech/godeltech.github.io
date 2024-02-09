@@ -1,3 +1,5 @@
+@use './style_variables.scss' as styles;
+
 :host {
     background-color: #fafafa;
     display: flex;
@@ -6,7 +8,7 @@
     inset: 64px 0 0;
     color: rgba(0, 0, 0, 0.87);
 
-    ::ng-deep > router-outlet + * {
+    ::ng-deep>router-outlet+* {
         flex: 1;
     }
 }
@@ -28,8 +30,20 @@
 }
 
 .logo {
-    margin: 60px auto 20px 50px;
-    width: 412px;
+    margin: 10px;
+}
+
+@media only screen and (min-device-width: styles.$mobile) {
+    .logo {
+        margin: 20px;
+    }
+}
+
+@media only screen and (min-device-width: styles.$laptop) {
+    .logo {
+        width: 412px;
+        margin: 35px auto 20px 35px;
+    }
 }
 
 .spacer {
@@ -45,5 +59,19 @@
 }
 
 .mat-toolbar-row {
-    background-color: #002856
+    background-color: styles.$base-godel-color
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: styles.$base-godel-color;
+    height: 50px;
+
+    .footer-logo {
+        height: 25px;
+        width: 25px;
+        margin-right: 10px;
+    }
 }
