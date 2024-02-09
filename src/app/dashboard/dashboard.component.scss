@@ -61,11 +61,14 @@
 }
 
 .name-container {
+    width: -webkit-fill-available;
     max-width: 570px;
     padding-right: 20px;
 
     .repo-name {
         font-weight: 500;
+        word-wrap: break-word;
+        white-space: initial;
     }
 
     .repo-language {

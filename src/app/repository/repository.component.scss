@@ -1,7 +1,13 @@
 @use '../style_variables.scss' as styles;
 
 :host {
-    margin: 50px;
+    margin: 10px;
+}
+
+@media only screen and (min-device-width: styles.$laptop) {
+    :host {
+        margin: 50px;
+    }
 }
 
 .back {
