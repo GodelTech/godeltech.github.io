@@ -30,12 +30,19 @@
 }
 
 .logo {
-    margin: 60px auto 20px 50px;
+    margin: 10px;
+}
+
+@media only screen and (min-device-width: styles.$mobile) {
+    .logo {
+        margin: 20px;
+    }
 }
 
 @media only screen and (min-device-width: styles.$laptop) {
     .logo {
         width: 412px;
+        margin: 35px auto 20px 35px;
     }
 }
 

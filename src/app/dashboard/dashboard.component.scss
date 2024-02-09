@@ -1,7 +1,7 @@
 @use '../style_variables.scss' as styles;
 
 :host {
-    padding: 35px;
+    padding: 10px;
 }
 
 .mat-mdc-form-field {
@@ -13,7 +13,17 @@
     }
 }
 
+@media only screen and (min-device-width: styles.$mobile) {
+    :host {
+        padding: 20px;
+    }
+}
+
 @media only screen and (min-device-width: styles.$laptop) {
+    :host {
+        padding: 35px;
+    }
+
     .mat-mdc-form-field {
         width: 500px;
     }
@@ -51,7 +61,6 @@
 
 .description-container {
     flex: 0.4;
-    padding: 0 20px;
     height: inherit;
     margin: 10px 0;
 
