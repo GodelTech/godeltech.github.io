@@ -1,14 +1,21 @@
+@use '../style_variables.scss' as styles;
+
 :host {
     padding: 35px;
 }
 
 .mat-mdc-form-field {
-    width: 500px;
     font-size: 18px;
 
     .material-icons {
         vertical-align: -5px;
         margin: 0 10px;
+    }
+}
+
+@media only screen and (min-device-width: styles.$laptop) {
+    .mat-mdc-form-field {
+        width: 500px;
     }
 }
 
@@ -80,12 +87,14 @@
 }
 
 .mat-icon.mat-primary {
-    --mat-icon-color: #002856;
+    color: styles.$base-godel-color;
 }
 
 .item-wrapper {
     display: flex;
-    color: #002856;
+    color: styles.$base-godel-color;
+    text-decoration: none;
+    flex-wrap: wrap;
 }
 
 .language {
